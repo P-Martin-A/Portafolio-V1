@@ -1,0 +1,78 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html{
+    font-size: 8px;
+    @include tablet(){
+        font-size: 10px;
+    }
+
+    body{
+        @include size();
+        @include display(grid);
+        font-family: $font;
+        color: $grey;
+        background-color: $white;
+        overflow-x: hidden;
+
+        h1{
+            font-size: $h1;
+            @include tablet(){
+                font-size: 6.2vw;
+            }
+            @include desktops-l(){
+                font-size: 3.5vw;
+            }
+        }
+        
+        h2{
+            font-size: $h2;
+            @include tablet(){
+                font-size: 4rem;
+            }
+            @include desktops-l(){
+                font-size: 3.2rem;
+            }
+            @include desktops-xl(){
+                font-size: 3.4rem;
+            }
+        }
+
+        h3{
+            font-size: $h3;
+            @include tablet(){
+                font-size: 1.8rem;
+            }
+            @include desktops-l(){
+                font-size: 1.6rem;
+            }
+        }
+        
+        p{
+            font-size: $p;
+            @include tablet(){
+                font-size: 2.6rem;
+            }
+            @include desktops-l(){
+                font-size: 2.4rem;
+            }
+            @include desktops-xl(){
+                font-size: 3rem;
+            }
+        }
+        
+        a{
+            font-size: $a;
+            @include tablet(){
+                font-size: 2.4rem;
+            }
+            @include desktops-l(){
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

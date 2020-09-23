@@ -1,0 +1,86 @@
+// SIZE
+@mixin size($width: 100%, $height: 100%) {
+    width: $width;
+    height: $height;
+}
+
+// DISPLAY
+@mixin display($display, $v1: none, $v2: none) {
+    @if ($display == grid) {
+        display: $display;
+        grid-template: 
+        'main main main main main main'
+        'section-about_me section-about_me section-about_me section-about_me section-about_me section-about_me'
+        'section-skill section-skill section-skill section-skill section-skill section-skill'
+        'section-services section-services section-services section-services section-services section-services'
+        'footer-contact footer-contact footer-contact footer-contact footer-contact footer-contact';
+        padding: 5rem 5rem 0;
+        @include desktops-l() {
+            padding: 0 5rem;
+            gap: 4rem 0;
+            grid-template: 
+            'header header header header header header'
+            'main main main main main main'
+            'section-about_me section-about_me section-about_me section-about_me section-about_me section-about_me'
+            'section-skill section-skill section-skill section-skill section-skill section-skill'
+            'section-services section-services section-services section-services section-services section-services'
+            'footer-contact footer-contact footer-contact footer-contact footer-contact footer-contact';
+        }
+    }
+
+    @if ($display == flex) {
+        display: $display;
+        align-items: $v1;
+        justify-content: $v2;
+        @content;
+    } 
+
+    @if ($display == none) {
+        display: $display;
+    }
+
+    @if ($display == inline-block) {
+        display: $display;
+    }
+}
+
+// GRID-AREA
+@mixin gridArea($name) {
+    grid-area: $name;
+    margin-bottom: 20rem;
+    @content;
+    @include desktops-l() {
+        margin-bottom: 10rem;
+    };
+}
+
+// POSITION
+@mixin position($position){
+    position: $position;
+    @content;
+}
+
+
+
+/*
+    MEDIA QUERIES
+*/
+// TABLET
+@mixin tablet() {
+    @media (min-width: 768px) and (min-height: 1024px) {
+        @content;
+    }
+}
+
+// DESKTOPS LARGE
+@mixin desktops-l() {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+// DESKTOPS EXTRA LARGE
+@mixin desktops-xl() {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}

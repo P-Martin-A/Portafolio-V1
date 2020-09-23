@@ -1,0 +1,83 @@
+#header{
+    @include gridArea(header);
+    @include desktops-l(){
+        @include size(100%, 5rem);
+    };
+
+    .navigation{
+        @include size();
+
+        .menu, .close{
+            cursor: pointer;
+            background-color: $orange;            
+            border-bottom-right-radius: 25%;
+            z-index: $tall;
+            @include size(5rem, 5rem);
+            @include position(fixed){
+                top: 0;
+                left: 0;
+            };
+            @include desktops-l(){
+                @include display(none)
+            };
+        }   
+
+        .list{
+            z-index: 1;
+            @include display(none);
+            @include desktops-l(){
+                @include display(flex, center, center);
+                @include size()
+            };
+
+            .item{
+                list-style: none;
+                margin: 2.5rem 0;
+                @include desktops-l(){
+                    margin: 0 2.5rem;
+                };
+
+                .link{
+                    position: relative;
+                    color: $white;
+                    text-transform: uppercase;
+                    text-align: center;
+                    @include desktops-l(){
+                        color: $grey;
+
+                        &::after{
+                            content: '';
+                            background-color: $dark-orange;
+                            transition: width .5s;
+                            @include size(0, 0);
+                            @include position(absolute){
+                                bottom: 0;
+                                left: 0;
+                            };
+                        }
+                        
+                        &:hover{
+                            opacity: .5;
+    
+                            &::after{
+                                @include size(100%, .2rem);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.active{
+                background-color: $orange;
+                @include size(100%, 100vh);
+                @include position(fixed){
+                    top: 0;
+                    left: 0;
+                };
+                @include display(flex, center, center){
+                    flex-direction: column;
+                };
+            }
+        }
+    }
+}

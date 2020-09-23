@@ -1,0 +1,50 @@
+#contact{
+    grid-area: footer-contact;  
+
+    .title{
+        color: $dark-orange;
+        text-decoration: underline;
+        text-decoration-color: $dark-orange;
+        text-align: center;
+    }
+
+    .images{
+        margin: 2rem 0;
+        text-align: center;
+        @include display(flex, center, center);
+
+        a{
+            @include size(50%, 50%);
+
+            .image{
+                @include size(30%, 30%);
+                @include tablet(){
+                    @include size(20%, 20%);
+                };
+                @include desktops-l(){
+                    @include size(15%, 15%);
+                };
+                @include desktops-xl(){
+                    @include size(10%, 10%);
+                };
+            }
+        }
+    }
+
+    .copyr{
+        font-size: 1.5rem;
+        text-align: center;
+        @include tablet(){
+            font-size: 2rem;
+
+        };
+        @include desktops-l(){
+            font-size: 2.5rem;
+
+        };
+        @include desktops-xl(){
+            font-size: 3rem;
+
+        };
+    }
+}

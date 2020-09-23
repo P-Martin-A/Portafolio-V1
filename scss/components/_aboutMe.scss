@@ -1,0 +1,33 @@
+#aboutMe{
+    @include gridArea(section-about_me);
+    @include desktops-l(){
+        @include display(flex, center, center);
+        flex-direction: row-reverse;
+    };
+  
+    .content{     
+        margin-bottom: 5rem;
+        @include desktops-l(){
+            width: 70%;
+            padding: 5rem;
+        };
+
+        .title{
+            text-align: center;
+            color: $dark-orange;
+            text-decoration: underline;
+            text-decoration-color: $dark-orange;
+        }
+    }
+
+    .image{
+        height: 50%;
+        @include desktops-l(){
+            @include size(30%, 100%);
+        };
+
+        .profile{
+            @include size();
+        }
+    }
+}

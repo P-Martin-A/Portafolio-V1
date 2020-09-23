@@ -1,0 +1,61 @@
+#skill{
+    @include gridArea(section-skill){
+        text-align: center;
+    };
+    @include desktops-l(){
+        @include display(flex, center, center){
+            flex-direction: column;
+        };
+    };
+
+    .title{
+        color: $dark-orange;
+        text-decoration: underline;
+        text-decoration-color: $dark-orange;
+    }
+
+    .images{
+        @include display(flex, center, center){
+            flex-wrap: wrap;
+        };
+        @include desktops-l() {
+            width: 100%;
+        };
+
+        .col{
+            margin: 1rem;
+            background-color: $orange;
+            border-radius: .5rem;
+            box-shadow: 0 0 .2rem $black;
+            @include size(60%, 15%);
+            @include tablet() {
+                width: 40%;
+            };
+            @include desktops-l() {
+                @include size(17%, 80%);
+            };
+            @include desktops-xl() {
+                width: 18;
+            };
+
+            &::after{
+                content: attr(title);
+                color: $white;
+                font-size: 2.5rem;
+                font-weight: bold;
+                @include size(100%, 20%);
+                @include position(relative){
+                    bottom: 0;
+                    left: 0;
+                };
+                @include desktops-l() {
+                    font-size: 2rem ;
+                };
+            }
+            
+            .image{
+                @include size(100%, 80%);
+            }
+        }
+    }
+}
