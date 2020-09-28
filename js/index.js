@@ -30,3 +30,11 @@ navImage.addEventListener('click', e => {
     }
 })
 
+window.addEventListener('scroll', (e) => {
+    let sy = window.scrollY
+    if(sy > 600) {
+        ancla.classList.add('active')
+    } else {
+        ancla.classList.remove('active')
+    }
+})

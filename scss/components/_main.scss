@@ -1,24 +1,18 @@
 #main{
+    @include size(100%, 80vh);
     @include gridArea(main);
-    @include desktops-l(){
+    @include desktops-l() {
         @include display(flex, center, center);
-  };  
+    };  
 
     .content{
         text-align: center;
-        margin-bottom: 5rem;
-        @include display(flex, center, center){
+        @include size();
+        @include display(flex, center, center) {
             flex-direction: column;
         };
-        @include tablet() {
-            height: 50%;
-        };
-        @include desktops-l(){
-            @include size(60%, auto);
-            padding: 2.5rem;
-        };
         animation: moveLeft ease-in-out 2s;
-        @keyframes moveLeft{
+        @keyframes moveLeft {
             0%{
                 opacity: 0;
                 transform: translateX(-100%);
@@ -26,7 +20,7 @@
                 opacity: 1;
                 transform: translateX(0);
             }
-        }
+        };
 
         .title{
 
@@ -35,7 +29,7 @@
                 animation: soy 5s ease infinite;
                 color: $dark-orange;
 
-                @keyframes soy{
+                @keyframes soy {
                     25%{
                         content: 'Maquetador Web';
                     } 50%{
@@ -48,39 +42,60 @@
         }
 
         .btn{
-            margin-top: 1.5rem;
+            margin: 2rem 0 4rem;
             color: $white;
             background-color: $orange;
             padding: 1rem 2.5rem;
-            border-radius: .8rem;
+            font-size: 4vw;
+            @include tablet() {
+                font-size: 3vw;
+            };
+            @include desktops-l() {
+                font-size: 2.5vw;
+            };
+            @include desktops-xl() {
+                font-size: 2vw;
+            };
 
             &:hover{
                 background-color: $dark-orange;
                 box-shadow: 0 0 2rem $dark-orange;
             }
         }
-    }
 
-    .image{
-        @include tablet() {
-            height: 40%;
-        };
-        @include desktops-l() {
-            width: 40%;
-            height: auto;
-        };
-        animation: moveRight ease-in-out 2s;
-        @keyframes moveRight{
-            0%{
-                opacity: 0;
-                transform: translateX(100%);
-            } 100%{
-                opacity: 1;
-                transform: translateX(0);
+        .down{
+            animation: doble 1s infinite ease-out;
+            cursor: pointer;
+            @keyframes doble {
+                0%{
+                    transform: scale(2);   
+                } 50% {
+                    transform: scale(3);
+                } 100% {
+                    transform: scale(4);      
+                }
             }
         }
+    }
 
-        .hero{
+    .ancla{
+        display: none;
+        font-size: 4rem;
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        @include size(5rem, 5rem);
+        @include position(fixed) {
+            bottom: 0;
+            right: .5rem;
+        }
+
+        &.active{
+            display: block;
+        }
+
+        .image{
             @include size();
         }
     }

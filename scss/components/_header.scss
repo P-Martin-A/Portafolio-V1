@@ -2,6 +2,7 @@
     @include gridArea(header);
     @include desktops-l(){
         @include size(100%, 5rem);
+        margin: 0;
     };
 
     .navigation{
@@ -12,12 +13,15 @@
             background-color: $orange;            
             border-bottom-right-radius: 25%;
             z-index: $tall;
-            @include size(5rem, 5rem);
-            @include position(fixed){
+            @include size(3rem, 3rem);
+            @include position(fixed) {
                 top: 0;
                 left: 0;
             };
-            @include desktops-l(){
+            @include tablet() {
+                @include size(5rem, 5rem);
+            };
+            @include desktops-l() {
                 @include display(none)
             };
         }   

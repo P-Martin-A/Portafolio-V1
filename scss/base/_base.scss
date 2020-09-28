@@ -6,13 +6,10 @@
 }
 
 html{
-    font-size: 8px;
-    @include tablet(){
-        font-size: 10px;
-    }
+    font-size: 10px;
+    scroll-behavior: smooth;
 
     body{
-        @include size();
         @include display(grid);
         font-family: $font;
         color: $grey;
@@ -22,10 +19,13 @@ html{
         h1{
             font-size: $h1;
             @include tablet(){
-                font-size: 6.2vw;
+                font-size: 4.5vw;
             }
             @include desktops-l(){
-                font-size: 3.5vw;
+                font-size: 4vw;
+            }
+            @include desktops-xl(){
+                font-size: 4.5vw;
             }
         }
         
@@ -35,10 +35,10 @@ html{
                 font-size: 4rem;
             }
             @include desktops-l(){
-                font-size: 3.2rem;
+                font-size: 5rem;
             }
             @include desktops-xl(){
-                font-size: 3.4rem;
+                font-size: 5.5rem;
             }
         }
 
@@ -55,10 +55,10 @@ html{
         p{
             font-size: $p;
             @include tablet(){
-                font-size: 2.6rem;
+                font-size: 2rem;
             }
             @include desktops-l(){
-                font-size: 2.4rem;
+                font-size: 2.5rem;
             }
             @include desktops-xl(){
                 font-size: 3rem;
